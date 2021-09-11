@@ -1,6 +1,6 @@
 import 'package:fbbrue/models/user.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-
+import 'package:fbbrue/services/database_service.dart';
 class Authservice {
   final FirebaseAuth _auth = FirebaseAuth.instance;
   dynamic _createUserId(User user) {
@@ -31,6 +31,8 @@ class Authservice {
       UserCredential result = await _auth.createUserWithEmailAndPassword(
           email: email, password: pass);
       user = result.user;
+      DatabaseService _datainstance = DatabaseService(uid:user.uid);
+      _datainstance.dataupdate("Abhishek", "3", 99);
       return user;
     } catch (e) {
       print(e.toString());
