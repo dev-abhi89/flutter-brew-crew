@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "745901552811",
+    "project_id": "fbbrue",
+    "storage_bucket": "fbbrue.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:745901552811:android:027d026f3ab2ea3b8533ee",
+        "android_client_info": {
+          "package_name": "com.abhiydv.fbbrue"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "745901552811-mi4mcm2i5mc2dsqiai7na0gvdlfbpe4p.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDaXygNkNzgVorrFPWmZXGEkcH4otkAaUg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "745901552811-mi4mcm2i5mc2dsqiai7na0gvdlfbpe4p.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
