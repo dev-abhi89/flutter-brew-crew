@@ -10,6 +10,7 @@ class Homescreen extends StatelessWidget {
 final Authservice _auth = Authservice();
   @override
   Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
     void _showbuttonsheet(){
        showModalBottomSheet(context: context, builder: (context){
          return Container(
@@ -32,7 +33,23 @@ final Authservice _auth = Authservice();
               FlatButton.icon(onPressed: ()=> _showbuttonsheet(), icon: Icon(Icons.settings),label: Text("Setting"),)
             ],
           ),
-          body: BrewList()
+          body: Container(
+            width: double.infinity,
+          height: size.height,
+          child: Stack(
+            alignment: Alignment.center,
+          children: [
+            Positioned(
+          child: Image.asset('assets/images/coffee_tower.png',width: size.width,),
+        top: size.height*0.56,),
+            Positioned(child: Image.asset('assets/images/coffee_heart.png',width: size.width,),
+            top: size.height*0.2,
+            right: 0,),
+            BrewList()
+
+          ],
+          ),
+          )
         ),
       ),
     );

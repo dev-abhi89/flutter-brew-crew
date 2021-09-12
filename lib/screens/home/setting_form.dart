@@ -27,7 +27,8 @@ class _SettingFormState extends State<SettingForm> {
     final usr = Provider.of<User>(context);
 print("callimgs : ${usr.uid}");
     return StreamBuilder<QuerySnapshot>(
-      stream:FirebaseFirestore.instance.collection('brue').where(usr.uid).snapshots() ,
+      stream:FirebaseFirestore.instance.collection('brue')
+          .where(usr.uid).snapshots() ,
       builder: (context,  snapshot) {
         if(snapshot.hasData){
            var coll = snapshot.data!.docs[0] ;
@@ -81,8 +82,8 @@ print("callimgs : ${usr.uid}");
                           min: 100.0,
                           max: 900.0,
                           divisions: 8,
-                          activeColor: Colors.brown[_currentstrength??100],
-                          inactiveColor:Colors.brown[_currentstrength??100] ,),
+                          activeColor: Colors.brown[_currentstrength??coll['strength']??100],
+                          inactiveColor:Colors.brown[_currentstrength?? coll['strength']??100] ,),
                       ],
                     ),
                   ),
@@ -119,8 +120,11 @@ print("callimgs : ${usr.uid}");
                     child: FlatButton(
                       onPressed: () async {
                         if(_formkey.currentState!.validate()){
-                          print("name $_currentName: suger $_currentsugar : strength $_currentstrength");
-
+                        await  DatabaseService(uid:usr.uid).dataupdate(
+                            _currentName??coll['name'],
+                            _currentsugar??coll['sugar'],
+                            _currentstrength??coll['strength']);
+                        print("ddddoooonnnnneeee");
                         }
                       },
                       child: Text("Update",textAlign: TextAlign.center,style: TextStyle(

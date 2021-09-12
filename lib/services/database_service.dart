@@ -11,6 +11,7 @@ class DatabaseService {
   });
 
   DatabaseService.WithoutUID() :uid='';
+
   final CollectionReference datacoll = FirebaseFirestore.instance.collection(
       'brue');
 
