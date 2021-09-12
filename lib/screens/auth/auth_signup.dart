@@ -1,4 +1,5 @@
 import 'package:custom_navigator/custom_navigation.dart';
+import 'package:fbbrue/loading.dart';
 import 'package:fbbrue/screens/auth/authenticate.dart';
 import 'package:fbbrue/screens/auth/components/auth_template.dart';
 import 'package:fbbrue/services/auth.dart';
@@ -19,6 +20,7 @@ class _SignupAuthState extends State<SignupAuth> {
  late String email;
  late String password;
   String error='';
+  bool loading = false;
   @override
   Widget build(BuildContext context) {
     return CustomNavigator(
@@ -30,7 +32,7 @@ class _SignupAuthState extends State<SignupAuth> {
           backgroundColor: Colors.brown[400],
         ),
         backgroundColor: Colors.brown[100],
-        body: SingleChildScrollView(
+        body: loading? Loading(): SingleChildScrollView(
           child: Stack(
             alignment: Alignment.center,
             children:[ Form(
@@ -48,12 +50,16 @@ class _SignupAuthState extends State<SignupAuth> {
                 },
                 btnText: "Signup",
                 ontapLogin: () async {if(_formkey.currentState!.validate()){
+                  setState(() {
+                    loading = true;
+                  });
                 dynamic user = await _auth.createUserWithEmailPas(email, password);
                 print(user.runtimeType);
                 if(user==null){
                   print("usnull heer ");
                   print(user.runtimeType);
                  setState(() {
+                   loading = false;
                    error= 'enter an valid email address';
                  });
                   print(error);

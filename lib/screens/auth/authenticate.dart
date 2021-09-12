@@ -5,6 +5,7 @@ import 'package:fbbrue/services/auth.dart';
 import 'package:provider/provider.dart';
 import 'package:custom_navigator/custom_navigator.dart';
 
+import '../../loading.dart';
 import 'components/auth_template.dart';
 
 class Authenticate extends StatefulWidget {
@@ -18,6 +19,7 @@ class _AuthenticateState extends State<Authenticate> {
   final Authservice _auth = Authservice();
   late String email;
   late String password;
+  bool loading =false;
   String error = '';
   final _formkey = GlobalKey<FormState>();
   @override
@@ -32,7 +34,7 @@ class _AuthenticateState extends State<Authenticate> {
             backgroundColor: Colors.brown[400],
           ),
           backgroundColor: Colors.brown[100],
-          body: SingleChildScrollView(
+          body: loading? Loading(): SingleChildScrollView(
             child: Stack(alignment: Alignment.center, children: [
               Form(
                 key: _formkey,
@@ -50,16 +52,21 @@ class _AuthenticateState extends State<Authenticate> {
                   ontapLogin: () async {
                     if (_formkey.currentState!.validate()) {
                       try {
+                        setState(() {
+                          loading = true;
+                        });
                         dynamic user =
                             await _auth.signinUsingEmailPass(email, password);
                         print(user);
                         if (user == null) {
                           setState(() {
+                            loading =false;
                             error = 'Enter valid Email and Password';
                           });
                         }
                       } catch (e) {
                         setState(() {
+                          loading = false;
                           error = e.toString();
                         });
                       }

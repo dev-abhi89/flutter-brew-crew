@@ -53,7 +53,11 @@ Widget build(BuildContext context){
           print("donedanadone");
           return MyApp();
         }
-        return Loading();
+        return MaterialApp(
+
+            home: Container(
+              color: Colors.brown[100],
+               child: Loading()));
     },
     );
   }
