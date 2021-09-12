@@ -8,14 +8,19 @@ class BrewTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     print(brew.strength);
-
-    return ListTile(
-      leading: CircleAvatar(
-        backgroundColor: Colors.brown[brew.strength],
-        radius: 50,
+Size size = MediaQuery.of(context).size;
+    return Card(
+      elevation: 5.0,
+      color: Colors.brown[50],
+      child: ListTile(
+        leading: CircleAvatar(
+          backgroundColor: Colors.brown[brew.strength],
+          radius: 50,
+          child: Image.asset('assets/images/cup1.png'),
+        ),
+        title: Text(brew.name),
+        subtitle: Text("takes ${brew.sugar}  Suger "),
       ),
-      title: Text(brew.name),
-      subtitle: Text("takes ${brew.sugar}  Suger "),
     );
   }
 }
