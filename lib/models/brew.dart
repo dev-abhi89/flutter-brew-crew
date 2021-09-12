@@ -1,9 +1,9 @@
 
 
 class Brew{
-  late String? name;
- late String? sugar;
- late int? strength;
+  late String name;
+ late String sugar;
+ late int strength;
   Brew({required this.name,required this.strength,required this.sugar});
   Brew.N(){
     name='';

@@ -32,7 +32,7 @@ class Authservice {
           email: email, password: pass);
       user = result.user;
       DatabaseService _datainstance = DatabaseService(uid:user.uid);
-      _datainstance.dataupdate("Abhishek", "3", 99);
+      _datainstance.dataupdate("Abhishek", "3", 100);
       return user;
     } catch (e) {
       print(e.toString());

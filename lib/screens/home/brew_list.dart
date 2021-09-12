@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:fbbrue/models/brew.dart';
+import 'package:fbbrue/screens/home/Brew_tile.dart';
 import 'package:flutter/material.dart';
 import 'package:fbbrue/services/database_service.dart';
 import 'package:provider/provider.dart';
@@ -23,6 +24,10 @@ class _BrewListState extends State<BrewList> {
       print(brue.strength);
     });
     }
-    return Container();
+    return ListView.builder(
+    itemCount: brew.length
+    ,itemBuilder:(context,index){
+      return BrewTile(brew: brew[index]);
+    } );
   }
 }
