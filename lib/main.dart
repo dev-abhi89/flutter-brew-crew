@@ -6,8 +6,6 @@ import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:provider/provider.dart';
 import 'loading.dart';
-import 'models/user.dart';
-
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
   runApp(MyAwesomeApp());
@@ -23,6 +21,7 @@ final mainNavigatorKey = GlobalKey<NavigatorState>();
       value: Authservice().user,
       initialData:nulll,
       child: MaterialApp(
+        debugShowCheckedModeBanner: false,
         theme: ThemeData(
           backgroundColor: Colors.brown[700],
         ),
@@ -49,12 +48,10 @@ Widget build(BuildContext context){
           return Homescreen();
         }
         if(snapshot.connectionState==ConnectionState.done){
-          print("done");
-          print("donedanadone");
           return MyApp();
         }
         return MaterialApp(
-
+  debugShowCheckedModeBanner: false,
             home: Container(
               color: Colors.brown[100],
                child: Loading()));
