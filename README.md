@@ -1,16 +1,35 @@
-# fbbrue
+## Flutter-brew
 
-A new Flutter project which based on flutter firebase series of codeninja
+#The concept of the project is to reduce the repetition of telling ingredients amount for your convenient taste of #coffee while ordering it in mess/office
 
-## Getting Started
+#With this application, you can fill up your details and it'll also show the color of coffee according to your strength(hard/soft etc.)
+#On the other hand, a staff member obtain your details easily
 
-This project is a starting point for a Flutter application.
 
-A few resources to get you started if this is your first Flutter project:
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+
+here is mty linkedn link for more details
+https://www.linkedin.com/posts/abhishek-yadav-61a8111aa_flutter-inheritedabrwidget-coffee-ugcPost-6843072415665291264-Yjv0
+
+
+
+## Here is some concept/library/functions I use
+
+
+• #firebase_auth - authentication login/registration
+
+• #firestore DB -realtime database with some CRUD operation
+
+• provider lib- to #manipulate app data according to #realtime data and inherited from to another screen using streams
+
+• #Streambuilder - to make dynamic widgets w.r.t current data states I.e #login page or home according to user data
+
+• #forms - with custom validation makes it more #secure
+
+• #try_catch - catching logical errors I.e wrong password with GUI changes
+
+• #custom_Navigator - you can't use default navigator when you're passing data one to another, so here is custom navigator
+
+
+  
